@@ -18,16 +18,16 @@ public class Search {
 		
 		while(OpenList.size() > 0 && !objetFound) {
 			
-			Node atualNode = OpenList[0];
+			Node atualNode = OpenList.poll();
 			ClosedList.add(atualNode);
-			OpenList.remove(0);
+			
 			
 			
 		    atualNode.PossiMovimento();
 		    
 		    for(int i = 0; i< atualNode.filho.size();i++) {
 		    	
-		    	Node currentChild = atualNode.filho[i];
+		    	Node currentChild = (Node) atualNode.filho.toArray()[i];
 		    	if(currentChild.Verifica()) {
 		    		
 		    		System.out.println("objetivo encontrado");
@@ -72,9 +72,10 @@ public class Search {
 		
 		for (int i=0; i<queue.size();i++ ) {
 			
-			if(queue[i].MapaRepetido(c.mapa))
+			if(((Node) queue.toArray()[i]).MapaRepetido(c.mapa))
 				
 				contains= true;
 		}
+		return contains;
 	}
 }
