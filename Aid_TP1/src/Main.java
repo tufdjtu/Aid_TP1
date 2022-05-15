@@ -30,7 +30,7 @@ public class Main {
 			System.out.println("Nao existe caminho...");
 		}
 		
-		System.out.println();
+		
 	}
 	
 	

@@ -11,12 +11,14 @@ public class Node {
 		public int[]mapa =new int [9];
 		public int x = 0 ;
 		public int coluna = 3 ;
+		public int id;
 		
 		
 		public Node (int[]temp ) {
 			
 			SetMapa(temp);
-			System.out.println("pilinha");
+			System.out.println(id);
+			
 		}
 	
 	
@@ -25,7 +27,7 @@ public class Node {
 			for(int i=0 ; i<mapa.length ; i++)
 				
 				this.mapa[i]=temp[i];
-			System.out.println("pilinha");
+		
 		}
 		
 		public void PossiMovimento() {
@@ -40,7 +42,7 @@ public class Node {
 			moverEsquerda(mapa,x);
 			moverCima(mapa,x);
 			moverBaixo(mapa,x);
-			System.out.println("pilinha1");
+			
 		}
 		
 		
@@ -56,7 +58,7 @@ public class Node {
 				
 				temp1 =mapa[i];
 			}
-			System.out.println("pilinha2");
+			
 			return objetivo;
 					
 			
@@ -76,11 +78,12 @@ public class Node {
         		mapapai[i]=temp2;
         		
         		Node filho1 = new Node(mapapai);
+        		filho1.id = id + 1; 
         		filho.add(filho1);
         		filho1.pai = this;
         		
         			
-        		System.out.println("pilinha3");
+        		
         		
         	}
 		}
@@ -98,10 +101,11 @@ public class Node {
         		mapapai[i]=temp2;
         		
         		Node filho1 = new Node(mapapai);
+        		filho1.id = id + 1; 
         		filho.add(filho1);
         		filho1.pai = this;
         		
-        		System.out.println("pilinha4");
+        		
         		
         		
         	}
@@ -121,10 +125,11 @@ public class Node {
         		mapapai[i]=temp2;
         		
         		Node filho1 = new Node(mapapai);
+        		filho1.id = id + 1; 
         		filho.add(filho1);
         		filho1.pai = this;
         		
-        		System.out.println("pilinha5");	
+        		
         		
         		
         	}
@@ -144,10 +149,11 @@ public class Node {
         		mapapai[i]=temp2;
         		
         		Node filho1 = new Node(mapapai);
+        		filho1.id = id + 1; 
         		filho.add(filho1);
         		filho1.pai = this;   		
         	}
-        		System.out.println("pilinha6");
+        		
         }
         
         public void copiaMapa(int[]x ,int[] y) {
@@ -158,7 +164,7 @@ public class Node {
         		x[i]= y[i];
         		
         		
-        	}System.out.println("pilinha7");
+        	}
         }
 	
         
@@ -191,7 +197,7 @@ public class Node {
         			sameMapa=false;
         		}
 
-        	}System.out.println("pilinha9");
+        	}
         	
         	return sameMapa;	
         }

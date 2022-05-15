@@ -16,15 +16,15 @@ public class Search {
 		OpenList.add(root);
 		boolean  objetFound = false;
 		
-		while(OpenList.size() > 0 && !objetFound) {
-			
+		//while(OpenList.size() > 0 && !objetFound) {
+			for(int a=0 ; a<=3 ; a++) {
 			Node atualNode = OpenList.poll();
 			ClosedList.add(atualNode);
 			
 			
 			
 		    atualNode.PossiMovimento();
-		    
+			
 		    for(int i = 0; i< atualNode.filho.size();i++) {
 		    	
 		    	Node currentChild = (Node) atualNode.filho.toArray()[i];
