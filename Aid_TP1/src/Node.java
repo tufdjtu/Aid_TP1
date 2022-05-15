@@ -18,6 +18,7 @@ public class Node {
 			
 			SetMapa(temp);
 			System.out.println(id);
+			PrintMapa();
 			
 		}
 	
@@ -179,6 +180,7 @@ public class Node {
         			System.out.println(mapa[cont]+ "");
         			
         			cont++;	
+        			
         		}
         		System.out.println(mapa);
         	}

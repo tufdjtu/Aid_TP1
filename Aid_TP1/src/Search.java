@@ -7,17 +7,17 @@ public class Search {
 		
 	}
 	
-	public Queue <Node> FirstSearch (Node root){
+	public Stack <Node> FirstSearch (Node root){
 		
-		Queue <Node> CaminhoSolucao = new LinkedList<Node>();
+	    Stack <Node> CaminhoSolucao = new Stack<Node>();
 		Queue <Node> OpenList = new LinkedList <Node>();
 		Queue <Node> ClosedList = new LinkedList <Node>();
 		
 		OpenList.add(root);
 		boolean  objetFound = false;
 		
-		//while(OpenList.size() > 0 && !objetFound) {
-			for(int a=0 ; a<=3 ; a++) {
+		while(OpenList.size() > 0 && !objetFound) {
+			
 			Node atualNode = OpenList.poll();
 			ClosedList.add(atualNode);
 			
@@ -48,7 +48,7 @@ public class Search {
 		return CaminhoSolucao;
 	}
 	
-	public void PathTrace(Queue<Node> path , Node n) {
+	public void PathTrace(Stack<Node> path , Node n) {
 		System.out.println("Encontrar o caminho...");
 		Node current = n;
 		path.add(current);

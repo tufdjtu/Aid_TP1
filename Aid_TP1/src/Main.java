@@ -16,15 +16,15 @@ public class Main {
 		 
 		Search fv = new Search();
 		
-		Queue <Node> solution = fv.FirstSearch(Nodeinicial);
+		Stack <Node> solution = fv.FirstSearch(Nodeinicial);
 		
 		if(solution.size()>0) {
 			
 			
 			
 			for(int i = 0 ;i< solution.size();i++) 
-				 ((Node) solution).PrintMapa();
-			
+			 ((Node) solution.toArray()[i]).PrintMapa();
+
 		}
 		else {
 			System.out.println("Nao existe caminho...");
