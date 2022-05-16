@@ -5,34 +5,25 @@ public class Main {
 
 	public static void main(String[] args) {
 		
-		 int [] mapa =
-			 {
-					 7, 2 ,4,
-					 5, 0, 6,
-					 8 ,3, 1
-			 };
+		 int [] mapa ={0,2,4,5,1,7,8,3,6};
+			 
+		 int [] mapa2 ={1,2,3,4,0,5,6,7,8};
+			 
+			 
+		
+		 
+		 
 		 
 		Node Nodeinicial = new Node(mapa);
-		 
-		Search fv = new Search();
+		Node Nodefinal = new Node(mapa2);
+		Search search = new Search();
+		System.out.println(search.FirstSearch(Nodeinicial,Nodefinal));
 		
-		Stack <Node> solution = fv.FirstSearch(Nodeinicial);
-		
-		if(solution.size()>0) {
-			
-			
-			
-			for(int i = 0 ;i< solution.size();i++) 
-			 ((Node) solution.toArray()[i]).PrintMapa();
-
-		}
-		else {
-			System.out.println("Nao existe caminho...");
-		}
 		
 		
 	}
-	
-	
-
 }
+		
+		
+		 
+		

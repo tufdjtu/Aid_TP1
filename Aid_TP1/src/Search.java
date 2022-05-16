@@ -7,7 +7,7 @@ public class Search {
 		
 	}
 	
-	public Stack <Node> FirstSearch (Node root){
+	public Boolean FirstSearch (Node root,Node nodeFinal){
 		
 	    Stack <Node> CaminhoSolucao = new Stack<Node>();
 		Queue <Node> OpenList = new LinkedList <Node>();
@@ -20,35 +20,33 @@ public class Search {
 			
 			Node atualNode = OpenList.poll();
 			ClosedList.add(atualNode);
-			
-			
-			
-		    atualNode.PossiMovimento();
+		    atualNode.gerarFilhos();
 			
 		    for(int i = 0; i< atualNode.filho.size();i++) {
 		    	
-		    	Node currentChild = (Node) atualNode.filho.toArray()[i];
-		    	if(currentChild.Verifica()) {
-		    		
-		    		System.out.println("objetivo encontrado");
+		    	Node currentChild = atualNode.getFilhos().get(i);
+		    	if(isEqual1(atualNode,nodeFinal)) {
 		    		objetFound = true;
-		    		
-		    		PathTrace(CaminhoSolucao,currentChild);
+		    		System.out.println("objetivo encontrado");
+		    		return objetFound;
+		    		//PathTrace(CaminhoSolucao,currentChild);
 		    	}
-		    	
-		    	if(!Contains(OpenList,currentChild) && !Contains(ClosedList,currentChild)) {
+		    	atualNode.PrintMapa();
+		    	System.out.println();
+		    	if(!OpenList.contains(currentChild) && !ClosedList.contains(currentChild)) {
 		    	OpenList.add(currentChild);
 		    	}
+		    	//System.out.println(currentChild);
 		    	
 		    }
 			
 			
 		}
 		
-		return CaminhoSolucao;
+		return objetFound;
 	}
 	
-	public void PathTrace(Stack<Node> path , Node n) {
+	/*public void PathTrace(Stack<Node> path , Node n) {
 		System.out.println("Encontrar o caminho...");
 		Node current = n;
 		path.add(current);
@@ -60,22 +58,24 @@ public class Search {
 			path.add(current);
 		}
 		
-	}
+	}*/
 	
 	
-	
-	
-	
-	public static boolean Contains(Queue<Node> queue , Node c)
-	{
-		boolean contains = false;
+	private static boolean isEqual1(Node stringInicial ,Node stringFinal) {
 		
-		for (int i=0; i<queue.size();i++ ) {
+		ArrayList<Boolean> isEqual= new ArrayList<Boolean>();
+		
+		for(int i=0 ; i<stringInicial.mapa.length ; i++) {
 			
-			if(((Node) queue.toArray()[i]).MapaRepetido(c.mapa))
+			if(stringInicial.mapa[i] == stringFinal.mapa[i]) {
 				
-				contains= true;
-		}
-		return contains;
+				isEqual.add(true);
+				
+			}else{
+				isEqual.add(false);
+			}
+		} return isEqual.contains(false)? false : true;
+
+		
 	}
 }
