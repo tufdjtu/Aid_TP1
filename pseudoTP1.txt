@@ -1,0 +1,77 @@
+Pseudocodico
+
+classe Node{
+
+3 variaveis para o problema:
+
+puzzle(string) , parent(Node), pecabranca(int);
+
+setter(){}, getter(){} do Parent ; //Podermos listar o Parent e dps conseguirmos ir buscalo
+
+private void findPecabranca(){
+
+	Este metodo e responsavel principalmente por ir buscar o index onde está inserido o "0", ou
+	seja a nossa peça branca .
+}
+
+public int getPecabranca(){
+		
+		Depois precisamos de que esse index esteja sempre disponivel para podermos ir busca-lo
+		dai este getter devolver a posição da pecabranca.
+	}
+
+
+public String Troca(int otherposi) {
+	
+		Criamos uma variavel que é um array de chars e armazenamos o nosso puzzle que inicialmente era uma String 
+		,passa a ser um array de chars atraves do toCharArray(), para que desta forma conseguimas aceder á posicao
+		da peça branca e trocamos com o index alvo sem que percamos a posição na memoria,ou seja o index inicial da posição onde esta
+		o "0" , atraves da variavel otheposi.
+}
+
+public ArrayList <Node> ordenarPuzzle() {
+	
+		Neste metodo iremos criar o ArrayList  de Nodes que chamamos de fotografias  e que vai armazenar todos os nodes gerados
+		depois utilizamos uma estrutura switch / case em que basicamente criamos todos os movimentos posiveis para cada index
+		sendo que existem sempre os padrões -1/+1 para o movimento esquerda/direita e -3/+3 cima/baixo.
+		No final damos return das fotografias ou seja do ArrayList que contem os Nodes.
+}
+
+public void printPuzzle(){
+
+	Este metodo irá servir para dar print ao puzzle sob a forma de matriz 3x3 posição a posição.
+
+}
+
+
+
+class Search{
+	
+	Stack Caminho;
+	Queue Nodes;
+	Queue Visited;
+
+	public Search(Node Nodeinicial , Node Nodefinal) {
+		criar um Nodeatual = ao nosso puzzle que contem o  Node inicial;
+		
+	Enquanto ( O node atual for diferente do node final sendo que nos nao estamos a comparar nodes estamos a comparar puzzle a puzzle que por sua vez tem associado um node){
+
+		Começamos a gerar filhos e colocamos num arrayList;
+		Adicionamos posteriormente o node atual á queue dos nodes ja visitados;
+		Depois criamos um for para percorrer o arrayList de filhos gerados e verificar se pertence a queue dos visitados;
+		Enquanto nao pertencer ele vai buscar o pai do node atual;
+		E adiciona o node atual na Queue dos Nodes ;
+	
+	Depois a necessario dar poll do Node atual da Queue Nodes  para verificar de novo;
+	
+	Por ultimo e necessario traçamos o caminho Stack(Caminho) adicionado a Stack o (Nodeatual)
+	
+	Enquanto o NodeAtual for diferente do Nodeinicial
+		Este irá sempre ter Pai ;
+		Logo vamos buscar o Pai ;
+		E depois renomeamos o nosso Nodeatual;
+
+	Enquanto o caminho nao estiver vazio iremos dar print do puzzle 
+		fazendo pop () na stack caminho para termos o ultimo a entrar na stack é o primeiro a sair. 
+
+}
